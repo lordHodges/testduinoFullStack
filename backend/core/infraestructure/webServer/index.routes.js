@@ -6,7 +6,8 @@ const cors = require("cors");
 const compression = require("compression");
 const morgan = require("morgan");
 module.exports = function ({
-	/** 
+	UsuarioRoutes
+	/**
 	**UsuarioRoutes,
 	**RolRoutes,
 	**LoginRoutes,
@@ -20,11 +21,12 @@ module.exports = function ({
 	//apiRoute.use(morgan("combined"));
 	const whitelist = ["https://localhost:4200", "https://www.imlchile.cl"];
 	apiRoute.use(bodyParser.json()).use(compression()).use(cors(whitelist));
-	// ? TODO declara las rutas de las clases
+	// ? declara las rutas de las clases
 	// TODO se debe automatizar este procedimiento. 
-	/* apiRoute.use("/access", LoginRoutes);
-	apiRoute.use("/usuarios", ValidarToken.exe, UsuarioRoutes);
-	apiRoute.use("/rol", ValidarToken.exe, RolRoutes); */
+	//apiRoute.use("/access", LoginRoutes);
+	apiRoute.use("/usuarios",  UsuarioRoutes);
+	//apiRoute.use("/usuarios", ValidarToken.exe, UsuarioRoutes);
+	//apiRoute.use("/rol", ValidarToken.exe, RolRoutes);
 
 	/* apiRoute.use("/empresa", EmpresaRoutes);
 	apiRoute.use("/sucursal", SucursalRoutes);

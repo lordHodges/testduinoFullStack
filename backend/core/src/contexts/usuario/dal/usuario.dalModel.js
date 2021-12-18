@@ -7,10 +7,11 @@ module.exports = (sequelize, DataTypes) => {
 		 * This method is not a part of Sequelize lifecycle.
 		 * The `models/index` file will call this method automatically.
 		 */
+		
 		static associate(models) {
-			// Usuario.belongsTo(models.Rol, {
-			// 	foreignKey: "RolID",
-			// });
+			Usuario.belongsTo(models.Rol, {
+				foreignKey: "RolID",
+			});
 		}
 	}
 	Usuario.init(
@@ -26,5 +27,6 @@ module.exports = (sequelize, DataTypes) => {
 			tableName: "Usuario",
 		}
 	);
+	Usuario.sync({ force: true });
 	return Usuario;
 };

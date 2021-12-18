@@ -1,12 +1,15 @@
 module.exports = {
-	PORT: process.env.PORT | 3030 ,
+	PORT: process.env.PORT | 3030,
 	DB: {
-		storage:"./data.sqlite",
-		host: "localhost",
-		dialect: "sqlite",
-		logging: false,
+		username: 'root',
+		password: 'nanco2121',
+		database: 'testduino_dev',
+		host: 'localhost',
+		dialect: 'mysql',
+		logging: false
 	},
-	SECRET: "lordhodges_generateToken",
+
+	SECRET: "lordhodges_generateTokens",
 };
 //sequelize db:migrate --url "mysql://root:nanco2121@localhost:3306/ng_finanzas_db
 /*  sequelize model:create --name Course --attributes name:string,status:string

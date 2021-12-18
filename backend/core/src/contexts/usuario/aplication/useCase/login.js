@@ -7,7 +7,6 @@ class Login {
 		this._access = AccessToken;
 	}
 	async exe(nombreUsuario, hash) {
-		console.log(nombreUsuario);
 		const usuarioFinded = await this._repository.getByName(nombreUsuario);
 
 		const verifyReq = await bcrypt.compare(hash, usuarioFinded.hash);

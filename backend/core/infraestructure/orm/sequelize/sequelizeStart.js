@@ -10,11 +10,12 @@ const config = DB;
 const db = {};
 var dir = require("node-dir");
 const sequelize = new Sequelize(
-	config.dialect,
-	config.host,
-	config.dialect,
+	config.database,
+	config.username,
+	config.password,
 	config
 );
+//bkjbas
 dir.subdirs("./core/src/contexts/", function (err, subdirs) {
 	if (err) throw err;
 
@@ -29,8 +30,13 @@ dir.subdirs("./core/src/contexts/", function (err, subdirs) {
 				);
 			})
 			.forEach((file) => {
-				console.log(filepath);
-				const model = sequelize.import(path.join('../../../../',filepath, file));
+				
+				/* const model = sequelize.import(path.join('../../../../', filepath, file)); */
+
+				var model = require(path.join('../../../../', filepath, file))(sequelize, 
+					Sequelize);
+				//agregar archivos como modelos sequelize
+
 				db[model.name] = model;
 			});
 	});
@@ -41,6 +47,7 @@ Object.keys(db).forEach((modelName) => {
 		db[modelName].associate(db);
 	}
 });
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

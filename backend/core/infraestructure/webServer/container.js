@@ -9,7 +9,7 @@ const Routes = require("./index.routes");
 // importar Entidades
 // ! Login
 // ! Usuario
-/* const {
+const {
 	UsuarioController,
 	UsuarioDalRepository,
 	UsuarioDomainRepository,
@@ -19,12 +19,12 @@ const Routes = require("./index.routes");
 	Login,
 	CrearUsuario,
 	ObtenerUsuarios,
-	} = require("../../src/contexts/registros/usuario");
- */
-/* const UsuarioRoutes = require("../../src/contexts/registros/usuario/interface/routes/usuario.routes");
-const LoginRoutes = require("../../src/contexts/registros/usuario/interface/routes/login.routes");
+	} = require("../../src/contexts/usuario/");
+
+ const UsuarioRoutes = require("../../src/contexts/usuario/interface/routes/usuario.routes");
+const LoginRoutes = require("../../src/contexts/usuario/interface/routes/login.routes");
 // ! Rol
-const {
+/*const {
 	CrearRol,
 	ObtenerRoles,
 	EliminarRol,
@@ -67,7 +67,7 @@ container
 	}) */
 
 	// entidades
-	/* .register({
+	.register({
 		UsuarioController: asClass(UsuarioController).singleton(),
 		UsuarioDalRepository: asClass(UsuarioDalRepository).singleton(),
 		UsuarioDomainRepository: asClass(UsuarioDomainRepository).singleton(),
@@ -75,7 +75,7 @@ container
 		UsuarioDomainService: asClass(UsuarioDomainService).singleton(),
 		ObtenerUsuarios: asClass(ObtenerUsuarios).singleton(),
 		CrearUsuario: asClass(CrearUsuario).singleton(),
-	}) */
+	})
 
 /* 	.register({
 		RolController: asClass(RolController).singleton(),
