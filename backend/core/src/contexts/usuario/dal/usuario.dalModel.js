@@ -7,13 +7,15 @@ module.exports = (sequelize, DataTypes) => {
 		 * This method is not a part of Sequelize lifecycle.
 		 * The `models/index` file will call this method automatically.
 		 */
-		
+		//TODO se debe crear una tabla para los roles
 		static associate(models) {
 			Usuario.belongsTo(models.Rol, {
 				foreignKey: "RolID",
 			});
 		}
 	}
+	//esta funcion se ejecuta antes de crear la tabla y se encarga de crear los campos de la tabla
+	
 	Usuario.init(
 		{
 			nombre: DataTypes.STRING,
