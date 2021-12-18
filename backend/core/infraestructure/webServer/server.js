@@ -8,9 +8,7 @@ class Server {
 
 		this._express = express();
 		this._express.use(router);
-		/* this._express.set(
-	  https.createServer({ key: key, cert: cert }, this._express)
-	); */
+		
 	}
 
 	start() {
