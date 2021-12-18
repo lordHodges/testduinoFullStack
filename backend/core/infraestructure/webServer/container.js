@@ -41,6 +41,7 @@ const db = require("../orm/sequelize/sequelizeStart");
 //security
 const JWTTokenizer = require("../security/jwt_tokenizer.secure");
 const ValidarToken = require("../security/validarToken.secure");
+const { statSync } = require("fs");
 
 //INICIALIZAR CONTaINER
 // ?(se debe registrar en main Index.js)

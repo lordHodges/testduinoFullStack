@@ -1,5 +1,6 @@
 // esto deberia estar en la capa de infraestructura
 // de los recursos de configuracion de la aplicacion
+// en este archivo se definen las configuraciones para la conexion de sequelize con la base de datos y ademas se capturan los modelos de la capa de persistencia
 
 const fs = require("fs");
 const path = require("path");
@@ -15,7 +16,7 @@ const sequelize = new Sequelize(
 	config.password,
 	config
 );
-//bkjbas
+
 dir.subdirs("./core/src/contexts/", function (err, subdirs) {
 	if (err) throw err;
 
