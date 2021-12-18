@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	}
 	//esta funcion se ejecuta antes de crear la tabla y se encarga de crear los campos de la tabla
-	
+
 	Usuario.init(
 		{
 			nombre: DataTypes.STRING,
@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
 			tableName: "Usuario",
 		}
 	);
+	
 	Usuario.sync({ force: true });
+	// la funcion anterior crea la tabla en la base de datos con los campos que le pasemos y luego se ejecuta el codigo de abaj
+	
 	return Usuario;
 };
