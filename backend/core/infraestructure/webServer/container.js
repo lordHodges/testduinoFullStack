@@ -24,7 +24,7 @@ const {
  const UsuarioRoutes = require("../../src/contexts/usuario/interface/routes/usuario.routes");
 const LoginRoutes = require("../../src/contexts/usuario/interface/routes/login.routes");
 // ! Rol
-/*const {
+const {
 	CrearRol,
 	ObtenerRoles,
 	EliminarRol,
@@ -32,16 +32,15 @@ const LoginRoutes = require("../../src/contexts/usuario/interface/routes/login.r
 	RolController,
 	RolDalRepository,
 	RolDomainRepository,
-	RolRoutes,
-} = require("../../src/contexts/registros/rol");
- */
+} = require("../../src/contexts/rol/");
+	const RolRoutes = require("../../src/contexts/rol/interface/routes/rol.routes");
+
 //ENLACE A BD
 const db = require("../orm/sequelize/sequelizeStart");
 
 //security
 const JWTTokenizer = require("../security/jwt_tokenizer.secure");
 const ValidarToken = require("../security/validarToken.secure");
-const { statSync } = require("fs");
 
 //INICIALIZAR CONTaINER
 // ?(se debe registrar en main Index.js)
@@ -58,14 +57,14 @@ container
 		server: asClass(Server).singleton(),
 	})
 	// secure
-	/* .register({
+	.register({
 		JWTTokenizer: asClass(JWTTokenizer).singleton(),
 		ValidarToken: asClass(ValidarToken).singleton(),
 		AccessToken: asClass(AccessToken).singleton(),
 		LoginController: asClass(LoginController).singleton(),
 		LoginRoutes: asFunction(LoginRoutes).singleton(),
 		Login: asClass(Login).singleton(), //caso de uso
-	}) */
+	})
 
 	// entidades
 	.register({
@@ -78,7 +77,7 @@ container
 		CrearUsuario: asClass(CrearUsuario).singleton(),
 	})
 
-/* 	.register({
+	.register({
 		RolController: asClass(RolController).singleton(),
 		RolDalRepository: asClass(RolDalRepository).singleton(),
 		RolDomainRepository: asClass(RolDomainRepository).singleton(),
@@ -86,7 +85,5 @@ container
 		CrearRol: asClass(CrearRol).singleton(),
 		ObtenerRoles: asClass(ObtenerRoles).singleton(),
 		EliminarRol: asClass(EliminarRol).singleton(),
-		//
-	}); */
-
+	});
 module.exports = container;

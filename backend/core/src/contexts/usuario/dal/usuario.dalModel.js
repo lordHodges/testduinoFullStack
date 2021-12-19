@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 			nombre: DataTypes.STRING,
 			apellido: DataTypes.STRING,
 			nombreUsuario: DataTypes.STRING,
+			RolID: DataTypes.INTEGER,
 			hash: DataTypes.STRING,
 		},
 		{
@@ -30,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 	
-	Usuario.sync({ force: true });
+	Usuario.sync({ force: false });
 	// la funcion anterior crea la tabla en la base de datos con los campos que le pasemos y luego se ejecuta el codigo de abaj
 	
 	return Usuario;

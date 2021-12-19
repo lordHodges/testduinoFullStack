@@ -8,8 +8,12 @@ class Login {
 	}
 	async exe(nombreUsuario, hash) {
 		const usuarioFinded = await this._repository.getByName(nombreUsuario);
+		if (usuarioFinded.message) {
+			return {message: "usuario no encontrado"};
+		}
 
 		const verifyReq = await bcrypt.compare(hash, usuarioFinded.hash);
+
 		if (!verifyReq) {
 			return { message: "algo anda mal, intente otra combinacion!" };
 		}
