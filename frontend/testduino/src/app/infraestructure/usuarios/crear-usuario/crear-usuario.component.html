@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+  <mat-card-subtitle>TestDuino App</mat-card-subtitle>
+  <mat-card-title>{{ data.formTitle }}</mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput [formControl]="nombre" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input matInput [formControl]="apellido" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre Usuario</mat-label>
+      <input matInput [formControl]="nombre_usuario" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" [formControl]="hash" />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button mat-raised-button (click)="guardar()" color="primary">
+      Guardar
+    </button>
+    <button mat-raised-button color="accent">Cancelar</button>
+  </mat-card-actions>
+  <mat-card-footer> </mat-card-footer>
+</mat-card>

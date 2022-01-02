@@ -16,12 +16,12 @@ module.exports = function ({
   const router = Router();
   router.use(morgan("combined"));
   const apiRoute = Router();
-  const whitelist = ["https://localhost:4200", "https://www.imlchile.cl"];
+  const whitelist = ["https://localhost:4200"];
   apiRoute.use(bodyParser.json()).use(compression()).use(cors(whitelist));
   // ? declara las rutas de las clases
   // TODO se debe automatizar este procedimiento.
   apiRoute.use("/access", LoginRoutes);
-  apiRoute.use("/usuario", UsuarioRoutes);
+  apiRoute.use("/usuario",ValidarToken.exe, UsuarioRoutes);
   apiRoute.use("/rol", RolRoutes);
 
   /* apiRoute.use("/empresa", EmpresaRoutes);

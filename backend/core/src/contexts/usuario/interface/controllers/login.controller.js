@@ -1,4 +1,5 @@
 class LoginController {
+	//todo validar respuesta cuando usuario y constraseña no coinciden
 	constructor({ Login }) {
 		this._login = Login;
 	}
@@ -10,6 +11,7 @@ class LoginController {
 				body.nombreUsuario,
 				body.hash
 			);
+			console.log(usuario, token);
 			return res.status(200).send({ usuario, token });
 		} catch (error) {
 			console.log(error);
