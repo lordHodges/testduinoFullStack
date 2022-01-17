@@ -1,7 +1,6 @@
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
-
 class Server {
 	constructor({ config, router }) {
 		this._config = config;

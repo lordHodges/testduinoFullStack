@@ -1,4 +1,5 @@
 const container = require("./core/infraestructure/webServer/container");
+
 const db  = container.resolve("db");
 const application = container.resolve("app");
 

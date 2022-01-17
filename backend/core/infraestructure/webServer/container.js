@@ -5,7 +5,8 @@ const StartUp = require("./startup");
 const Server = require("./server");
 const config = require("../config/env");
 const Routes = require("./index.routes");
-
+const testduino = require("../testduino/app");
+const Socket = require("./socket");
 // importar Entidades
 // ! Login
 // ! Usuario
@@ -55,6 +56,8 @@ container
 		app: asClass(StartUp).singleton(),
 		router: asFunction(Routes).singleton(),
 		server: asClass(Server).singleton(),
+		socket: asClass(Socket).singleton(),
+		//testduino: asClass(testduino).singleton(),
 	})
 	// secure
 	.register({
